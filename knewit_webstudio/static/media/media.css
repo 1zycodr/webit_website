@@ -1,0 +1,37 @@
+@media screen and (max-width: 1001px) {
+   body {
+      font-size: 80%;
+   }
+   .main_header .center_nav_inner {
+      display: none;
+   }
+   .main_header .right_inner {
+      display: none;
+   }
+   .content_block__right {
+      display: none;
+   }
+   .inner-burger {
+      display: flex;
+   }
+   .inner_btn_slider{
+       display: none;
+   }
+   iframe {
+      display: none;
+   }
+   .content_block__left{
+      width: 100%;
+   }
+}
+@media screen and (max-width: 700px){
+   body {
+      font-size: 50%;
+   }
+}
+@media screen and (min-width: 1001px) {
+   .active .sub-menu {
+      display: none;
+   }
+   
+}

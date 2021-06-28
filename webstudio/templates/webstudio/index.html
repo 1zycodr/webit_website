@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+  {% load static %}
+
+<head>
+  <title>WebITeam</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+  <link rel="shortcut icon" href="{% static 'image/logo-site.svg' %}" type="image/-icon">
+  <link rel="stylesheet" href="{% static 'style/style.css' %}">
+  <link rel="stylesheet" href="{% static 'media/media.css' %}">
+  <link rel="stylesheet" href="{% static 'librarys/slick/slick.css' %}">
+</head>
+
+<body>
+  <main class="blur">
+    <!-- Header ==================================================================================== -->
+    <section class="main_header">
+      <div class="left_inner_logo">
+        <a href="#"><picture><source srcset="{% static 'image/logo-site.svg' %}" type="image/webp"><img src="{% static 'image/logo-site.svg' %}" alt="logo-site"></picture>Web<br>ITeam</a>
+      </div>
+      <div class="center_nav_inner"></div>
+      <div class="right_inner">
+        <a href=""><picture><source srcset="{% static 'image/WhatsApp.svg' %}" type="image/webp"><img src="{% static 'image/WhatsApp.svg' %}" alt=""></picture></a>
+        <a href=""><picture><source srcset="{% static 'image/tele.svg' %}" type="image/webp"><img src="{% static 'image/tele.svg' %}" alt=""></picture></a>
+        <a href=""><picture><source srcset="{% static 'image/Facebook.svg' %}" type="image/webp"><img src="{% static 'image/Facebook.svg' %}" alt="" title="facebook.com"></picture></a>
+      </div>
+    </section>
+    <!-- btn next prev man slider -->
+    <div class="inner_btn_slider">
+      <div class="prev-btn"><picture><source srcset="{% static 'image/chevrons-right.svg' %}" type="image/webp"><img src="{% static 'image/chevrons-right.svg' %}" alt=""></picture></div>
+      <div class="next-btn"><picture><source srcset="{% static 'image/chevrons-right.svg' %}" type="image/webp"><img src="{% static 'image/chevrons-right.svg' %}" alt=""></picture></div>
+    </div>
+    <!-- Page 0ne ==================================================================================== -->
+    <section class="main_container">
+      <div class="page_wrapper_container">
+        <div class="inner_container_page page_one">
+          <div class="content_block content_block__left">
+            <h1>
+              <em class="text-wrapper">
+                <em class="text">Тайная</em>
+              </em>
+              <em class="text-wrapper">
+                <em class="text">веб-студия</em>
+              </em>
+            </h1>
+            <h2>Тайная веб-студия города Алматы</h2>
+            <div class="inner_btn_request">
+              <button class="gradient-border open_form">Подать заявку</button>
+            </div>
+          </div>
+          <div class="content_block content_block__right">
+            <picture><source srcset="{% static 'image/img-man.webp' %}" type="image/webp"><img class="anime_img" src="{% static 'image/img-man.png' %}" alt=""></picture>
+          </div>
+        </div>
+      </div>
+      <!-- Page Two ==================================================================================== -->
+      <div class="page_wrapper_container">
+        <div class="inner_container_page page_two">
+          <div class="inner_content inner_content__one">
+            <div class="block_content">
+              <div class="inner_img">
+                <picture><source srcset="{% static 'image/thumb-up.svg' %}" type="image/webp"><img src="{% static 'image/thumb-up.svg' %}" alt=""></picture>
+              </div>
+              <p>Мы гарантируем<br> качественный<br> продукт</p>
+            </div>
+            <div class="block_content">
+              <div class="inner_img">
+                <picture><source srcset="{% static 'image/1.svg' %}" type="image/webp"><img src="{% static 'image/1.svg' %}" alt=""></picture>
+              </div>
+              <p>У нас<br> приемлемые<br> цены</p>
+            </div>
+            <div class="block_content">
+              <div class="inner_img">
+                <picture><source srcset="{% static 'image/time.svg' %}" type="image/webp"><img src="{% static 'image/time.svg' %}" alt=""></picture>
+              </div>
+              <p>Мы успеем во<br> время!</p>
+            </div>
+          </div>
+          <div class="inner_content inner_content__two">
+            <div class="block_img_btn">
+              <div class="img_content">
+                <p>Сайт под ключ</p>
+                <!-- <picture><source srcset="image/icons.webp" type="image/webp"><img class="huinay " src="image/icons.png" alt=""></picture> -->
+              </div>
+              <button>Заказать услугу</button>
+            </div>
+            <div class="block_img_btn">
+              <div class="img_content">
+                <p>Сайт по верстке</p>
+                <!-- <picture><source srcset="image/Saly-27.webp" type="image/webp"><img src="image/Saly-27.png" alt=""></picture> -->
+              </div>
+              <button>Заказать услугу</button>
+            </div>
+            <div class="block_img_btn">
+              <div class="img_content">
+                <p>Индивидуальный<br> дизайн</p>
+                <!-- <picture><source srcset="image/Saly-23.webp" type="image/webp"><img src="image/Saly-23.png" alt=""></picture> -->
+              </div>
+              <button>Заказать услугу</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Page Three ==================================================================================== -->
+      <div class="page_wrapper_container">
+        <div class="inner_container_page page_three">
+ 
+          {% for item in works %}
+          <div class="content_portfolio">
+            <div class="block img_block">
+              {% if item.work_photo_main %}
+              <picture><source srcset="{{ item.work_photo_main.url }}" type="image/webp"><img src="{{ item.work_photo_main.url }}" alt=""></picture>
+
+              {% else %}
+
+              <picture><source srcset="{% static 'image/one.webp' %}" type="image/webp"><img src="{% static 'image/one.png' %}" alt=""></picture>
+
+              {% endif %}
+            </div>
+            <div class="block content">
+              <h2>{{ item.work_title }}</h2>
+              <p>{{ item.work_info }}
+              </p>
+            
+          
+            </div>
+          </div>
+
+          {% endfor %}
+
+        </div>
+      </div>
+      <!-- Page Four ==================================================================================== -->
+      <div class="page_wrapper_container">
+        <div class="inner_container_page page_four">
+          <div class="block_slider block_slider__one">
+            <h2>Администрация</h2>
+            <div class="content_worker">
+              {% for item in administ %}
+              <div class="worker_item">
+                {% if item.employee_photo %}
+                <picture><source srcset="{{ item.employee_photo.url }}" type="image/webp"><img src="{{ item.employee_photo.url }}" alt=""></picture>
+               {% else %}
+               <picture><source srcset="{% static 'image/IMG.webp' %}" type="image/webp"><img src="{% static 'image/IMG.png' %}" alt=""></picture>
+               {% endif %}
+                  <p>{{ item.employee_fullname }}</p>
+                <p>{{ item.employee_specialization }}</p>
+                <a href="">{{ employee_email }}</a>
+              </div>
+
+              {% endfor %}
+
+            </div>
+          </div>
+          <div class="block_slider block_slider__two">
+            <h2>Frontend-разработчики</h2>
+            <div class="content_worker">
+              {% for item in front %}
+              <div class="worker_item">
+                {% if item.employee_photo %}
+                <picture><source srcset="{{ item.employee_photo.url }}" type="image/webp"><img src="{{ item.employee_photo.url }}" alt=""></picture>
+               {% else %}
+               <picture><source srcset="{% static 'image/IMG.webp' %}" type="image/webp"><img src="{% static 'image/IMG.png' %}" alt=""></picture>
+               {% endif %}
+                  <p>{{ item.employee_fullname }}</p>
+                <p>{{ item.employee_specialization }}</p>
+                <a href="">{{ employee_email }}</a>
+              </div>
+
+              {% endfor %}
+
+            </div>
+          </div>
+          <div class="block_slider block_slider__three">
+            <h2>Backend-разработчики </h2>
+            <div class="content_worker">
+              {% for item in back %}
+              <div class="worker_item">
+                {% if item.employee_photo %}
+                <picture><source srcset="{{ item.employee_photo.url }}" type="image/webp"><img src="{{ item.employee_photo.url }}" alt=""></picture>
+               {% else %}
+               <picture><source srcset="{% static 'image/IMG.webp' %}" type="image/webp"><img src="{% static 'image/IMG.png' %}" alt=""></picture>
+               {% endif %}
+                  <p>{{ item.employee_fullname }}</p>
+                <p>{{ item.employee_specialization }}</p>
+                <a href="">{{ employee_email }}</a>
+              </div>
+
+              {% endfor %}
+
+            </div>
+          </div>
+          <div class="block_slider block_slider__four">
+            <h2>HR-Менеджера</h2>
+            <div class="content_worker">
+              {% for item in hr %}
+              <div class="worker_item">
+                {% if item.employee_photo %}
+                <picture><source srcset="{{ item.employee_photo.url }}" type="image/webp"><img src="{{ item.employee_photo.url }}" alt=""></picture>
+               {% else %}
+               <picture><source srcset="{% static 'image/IMG.webp' %}" type="image/webp"><img src="{% static 'image/IMG.png' %}" alt=""></picture>
+               {% endif %}
+                  <p>{{ item.employee_fullname }}</p>
+                <p>{{ item.employee_specialization }}</p>
+                <a href="">{{ employee_email }}</a>
+              </div>
+
+              {% endfor %}
+
+            </div>
+          </div>
+          <div class="block_slider block_slider__five">
+            <h2>Дизайнеры</h2>
+            <div class="content_worker">
+              {% for item in designer %}
+              <div class="worker_item">
+                {% if item.employee_photo %}
+                <picture><source srcset="{{ item.employee_photo.url }}" type="image/webp"><img src="{{ item.employee_photo.url }}" alt=""></picture>
+               {% else %}
+               <picture><source srcset="{% static 'image/IMG.webp' %}" type="image/webp"><img src="{% static 'image/IMG.png' %}" alt=""></picture>
+               {% endif %}
+                  <p>{{ item.employee_fullname }}</p>
+                <p>{{ item.employee_specialization }}</p>
+                <a href="">{{ employee_email }}</a>
+              </div>
+
+              {% endfor %}
+
+            </div>
+          </div>
+        </div>
+        <div class="inner_btn_for_slider">
+          <div class="style_btn next_slide"><picture><source srcset="{% static 'image/chevrons-right.svg' %}" type="image/webp"><img src="image/chevrons-right.svg" alt=""></picture></div>
+          <div class="style_btn prev_slide"><picture><source srcset="{% static 'image/chevrons-right.svg' %}" type="image/webp"><img src="image/chevrons-right.svg" alt=""></picture></div>
+        </div>
+      </div>
+      <!-- Page Five ==================================================================================== -->
+      <div class="page_wrapper_container">
+        <div class="inner_container_page page_five">
+          <div class="page_five_inner page_five_inner__left">
+            <!-- Main form five page===================================================================== -->
+            <form class="main_form" method = 'post'>
+
+              {% csrf_token %}
+              {{ form.non_field.errors }}
+
+
+               <div class="input_block input_block__one">
+
+
+                <div class="name">
+                  <label for="{{ form.order_title.id_for_label }}"><p>Имя</p> </label>
+                  {{ form.order_title }}
+                </div>
+                {{ form.order_title.errors }}
+                <div class="number">
+                  <label for="{{ form.order_number.id_for_label }}"><p>Телефон</p> </label>
+                  {{ form.order_number }}
+                </div>
+                {{ form.order_number.errors }}
+              </div>
+              <div class="input_block input_block__two">
+                <div class="post_office">
+                  <label for="{{ form.order_email.id_for_label }}"><p>Почта</p> </label>
+                  {{ form.order_email }}
+                </div>
+                {{ form.order_email.errors }}
+                <div class="what_to_develop">
+                  <label for="{{ form.order_info.id_for_label }}"><p> Что разработать?</p> </label>
+                  {{ form.order_info }}
+                </div>
+                {{ form.order_info.errors }}
+              </div>
+              <div class="input_block input_block__three">
+                <label for="{{ form.order_content.id_for_label }}"><p>Описание</p> </label>
+              {{ form.order_content }}
+          
+              </div>
+        {{ form.order_content.errors }}
+        <button type="submit" class="btn_in_form">оставить заявку</button>
+            </form>
+            <!-- END Main form five page===================================================================== -->
+          </div>
+          <div class="page_five_inner page_five_inner__right">
+            <h2>Оставьте свой заказ на нашем сайте
+              <picture><source srcset="{% static 'image/Arrow.svg' %}" type="image/webp"><img src="{% static 'image/Arrow.svg' %}" alt=""></picture>
+            </h2>
+            <strong>Где мы находимся?</strong>
+            <p>Адрес: г. Алматы, ул. Макатаева, 117 лит А Бизнес<br> центр «LOTOS», офис 423a</p>
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2905.4426570870055!2d76.92493551574633!3d43.26310137913655!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38836eaf242f173f%3A0x6d1ac5f0ce5883a8!2z0JHQuNC30L3QtdGBLdGG0LXQvdGC0YAg0JvQvtGC0L7RgQ!5e0!3m2!1sru!2skz!4v1624603753907!5m2!1sru!2skz"
+              width="536" height="258" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- menu - mobile(burger )=========================== -->
+    <div class="inner-burger">
+      <a href="#" class="button-burger">
+        <span class="menu">
+          <b>menu</b>
+        </span>
+      </a>
+    </div>
+    <div id="sub-menu" class="sub-menu">
+      <div class="right_inner">
+        <a href=""><picture><source srcset="image/WhatsApp.svg" type="image/webp"><img src="image/WhatsApp.svg" alt=""></picture></a>
+        <a href=""><picture><source srcset="image/tele.svg" type="image/webp"><img src="image/tele.svg" alt=""></picture></a>
+        <a href=""><picture><source srcset="image/Facebook.svg" type="image/webp"><img src="image/Facebook.svg" alt="" title="facebook.com"></picture></a>
+      </div>
+    </div>
+    <!-- ================================================= -->
+    <!-- FOOTER ===========================================-->
+    <footer class="footer">
+      <div class="content_footer">
+        <p>Основано в 2021 году.</p>
+        <a href="#">Тел: +7 (701) 938-04-63</a>
+      </div>
+    </footer>
+  </main>
+  <!-- FOOTER ===========================================-->
+  <!-- POP UP first page FORM ============================================================= -->
+  <div class="main_window">
+    <form class="main_form" method = 'post'>
+      {% csrf_token %}
+              {{ form.non_field.errors }}
+      <div class="closed_inner">
+        <picture><source srcset="image/close.svg" type="image/webp"><img class="close" src="image/close.svg" alt=""></picture>
+      </div>
+      <div class="input_block input_block__one">
+        <div class="name">
+                  <label for="{{ form.order_title.id_for_label }}"><p>Имя</p> </label>
+                  {{ form.order_title }}
+                </div>
+                {{ form.order_title.errors }}
+                <div class="number">
+                  <label for="{{ form.order_number.id_for_label }}"><p>Телефон</p> </label>
+                  {{ form.order_number }}
+                </div>
+                {{ form.order_number.errors }}
+              </div>
+              <div class="input_block input_block__two">
+                <div class="post_office">
+                  <label for="{{ form.order_email.id_for_label }}"><p>Почта</p> </label>
+                  {{ form.order_email }}
+                </div>
+                {{ form.order_email.errors }}
+                <div class="what_to_develop">
+                  <label for="{{ form.order_info.id_for_label }}"><p> Что разработать?</p> </label>
+                  {{ form.order_info }}
+                </div>
+                {{ form.order_info.errors }}
+              </div>
+              <div class="input_block input_block__three">
+                <label for="{{ form.order_content.id_for_label }}"><p>Описание</p> </label>
+              {{ form.order_content }}
+          
+              </div>
+        {{ form.order_content.errors }}
+        <button type="submit" class="btn_in_form">оставить заявку</button>
+    </form>
+  </div>
+  <!-- POP UP first page FORM ============================================================= -->
+
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="{% static 'librarys/slick/slick.min.js' %}"></script>
+  <script src="{% static 'js/jquery.maskedinput.min.js' %}"></script>
+  <script src="{% static 'js/script.min.js' %}"></script>
+</body>
+
+</html>
