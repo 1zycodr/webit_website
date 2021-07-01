@@ -42,11 +42,11 @@ def main_page(request):
             send_mail(
                         order_email,
                         info_end,
-                        'zinovievakinov1234@gmail.com',
+                        'webiteamsquad@gmail.com',
 
-                        ['zinovievakinov1234@gmail.com'],
+                        ['webiteamsquad@gmail.com'],
 
-                        fail_silently=True,
+                        fail_silently=False,
                     )
 
             return redirect('main_page')
